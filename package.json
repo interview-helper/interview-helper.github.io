@@ -1,0 +1,40 @@
+{
+  "name": "@interview-helper/monorepo",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "wireit",
+    "build": "wireit"
+  },
+  "wireit": {
+    "dev": {
+      "command": "npm run dev -w @interview-helper/client"
+    },
+    "build": {
+      "command": "npm run build -w @interview-helper/client"      
+    }    
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.2",
+    "typescript": "^5.0.4",
+    "wireit": "^0.9.5"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
