@@ -5,9 +5,9 @@ import { resolveRouterPath } from '../router';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 @customElement('app-header')
 export class AppHeader extends LitElement {
-  @property({ type: String }) title = 'PWA Starter';
+  @property({ type: String }) title = 'Interview Helper';
 
-  @property({ type: Boolean}) enableBack: boolean = false;
+  @property({ type: Boolean }) enableBack: boolean = false;
 
   static get styles() {
     return css`
@@ -15,7 +15,7 @@ export class AppHeader extends LitElement {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: var(--app-color-primary);
+        background: var(--app-background-color, #fff);
         color: white;
         height: 4em;
         padding-left: 16px;
@@ -27,6 +27,10 @@ export class AppHeader extends LitElement {
         height: env(titlebar-area-height, 50px);
         width: env(titlebar-area-width, 100%);
         -webkit-app-region: drag;
+
+        box-shadow:
+          0px 0px 2px rgba(0, 0, 0, 0.12),
+          0px 0px 16px rgba(0, 0, 0, 0.12);
       }
 
       header h1 {
@@ -34,6 +38,11 @@ export class AppHeader extends LitElement {
         margin-bottom: 0;
         font-size: 20px;
         font-weight: bold;
+      }
+
+      sl-button + h1 {
+        white-space: nowrap;
+        margin-left: 1rem;
       }
 
       nav a {
@@ -47,7 +56,7 @@ export class AppHeader extends LitElement {
         width: 12em;
       }
 
-      @media(prefers-color-scheme: light) {
+      @media (prefers-color-scheme: light) {
         header {
           color: black;
         }
@@ -66,11 +75,10 @@ export class AppHeader extends LitElement {
   render() {
     return html`
       <header>
-
         <div id="back-button-block">
-          ${this.enableBack ? html`<sl-button href="${resolveRouterPath()}">
-            Back
-          </sl-button>` : null}
+          ${this.enableBack
+            ? html`<sl-button href="${resolveRouterPath()}"> Back </sl-button>`
+            : null}
 
           <h1>${this.title}</h1>
         </div>
@@ -78,3 +86,4 @@ export class AppHeader extends LitElement {
     `;
   }
 }
+

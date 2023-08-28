@@ -6,23 +6,23 @@
     "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "wireit",
     "build": "wireit"
   },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "wireit": {
     "dev": {
-      "command": "npm run dev -w @interview-helper/client"
-    },
-    "build": {
-      "command": "npm run build -w @interview-helper/client"      
-    }    
+      "dependencies": [
+        "./packages/ui:start",
+        "./packages/client:dev"
+      ]
+    }
   },
   "devDependencies": {
     "husky": "^8.0.3",
