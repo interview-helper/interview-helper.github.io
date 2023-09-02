@@ -17,22 +17,12 @@ export class AppHome extends LitElement {
     return [
       styles,
       css`
-        #welcomeBar {
+        main {
+          height: calc(100vh - 80px);
           display: flex;
-          justify-content: center;
-          align-items: center;
           flex-direction: column;
-        }
-
-        #welcomeCard,
-        #infoCard {
-          padding: 18px;
-          padding-top: 0px;
-        }
-
-        sl-card::part(footer) {
-          display: flex;
-          justify-content: flex-end;
+          align-items: center;
+          justify-content: center;
         }
 
         @media (min-width: 750px) {
@@ -46,10 +36,6 @@ export class AppHome extends LitElement {
             flex-direction: row;
             align-items: flex-start;
             justify-content: space-between;
-          }
-
-          #welcomeCard {
-            margin-right: 64px;
           }
         }
       `,
@@ -81,15 +67,10 @@ export class AppHome extends LitElement {
       <app-header></app-header>
 
       <main>
-        <div id="welcomeBar">
-          <sl-card id="infoCard">
-            <h2>Main</h2>
-          </sl-card>
-
-          <sl-button href="${resolveRouterPath('about')}" variant="primary"
-            >Navigate to About</sl-button
-          >
-        </div>
+        <h1>Interview Helper</h1>
+        <sl-button href="${resolveRouterPath('about')}" variant="primary"
+          >시작하기</sl-button
+        >
       </main>
     `;
   }

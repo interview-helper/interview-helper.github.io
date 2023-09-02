@@ -16,7 +16,7 @@ export class AppHeader extends LitElement {
         justify-content: space-between;
         align-items: center;
         background: var(--app-background-color, #fff);
-        color: white;
+        color: black;
         height: 4em;
         padding-left: 16px;
         padding-top: 12px;
@@ -54,16 +54,6 @@ export class AppHeader extends LitElement {
         justify-content: space-between;
         align-items: center;
         width: 12em;
-      }
-
-      @media (prefers-color-scheme: light) {
-        header {
-          color: black;
-        }
-
-        nav a {
-          color: initial;
-        }
       }
     `;
   }
