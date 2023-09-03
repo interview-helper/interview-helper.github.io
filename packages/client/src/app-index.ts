@@ -1,6 +1,7 @@
 import { LitElement, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
+import './apis/api-setting';
 import './pages/app-home';
 import './components/header';
 import './styles/global.css';
@@ -24,12 +25,11 @@ export class AppIndex extends LitElement {
 
   firstUpdated() {
     router.addEventListener('route-changed', () => {
-      if ("startViewTransition" in document) {
+      if ('startViewTransition' in document) {
         return (document as any).startViewTransition(() => {
           this.requestUpdate();
         });
-      }
-      else {
+      } else {
         this.requestUpdate();
       }
     });
@@ -40,3 +40,4 @@ export class AppIndex extends LitElement {
     return router.render();
   }
 }
+

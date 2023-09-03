@@ -4,6 +4,7 @@ import { resolveRouterPath } from '../router';
 
 import '@shoelace-style/shoelace/dist/components/card/card.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/badge/badge.js';
 
 import { styles } from '../styles/shared-styles';
 
@@ -23,6 +24,15 @@ export class AppHome extends LitElement {
           flex-direction: column;
           align-items: center;
           justify-content: center;
+        }
+
+        .title {
+          display: flex;
+          align-items: center;
+        }
+
+        .title > .badge {
+          margin-right: 0.5rem;
         }
 
         @media (min-width: 750px) {
@@ -66,8 +76,10 @@ export class AppHome extends LitElement {
     return html`
       <app-header></app-header>
 
-      <main>
-        <h1>Interview Helper</h1>
+      <main class="page page-home">
+        <h1 class="title">
+          <span>Interview Assistant</span>
+        </h1>
         <sl-button href="${resolveRouterPath('about')}" variant="primary"
           >시작하기</sl-button
         >

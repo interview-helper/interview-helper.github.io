@@ -15,9 +15,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@nanostores/lit": "^0.1.5",
     "@shoelace-style/shoelace": "workspace:*",
     "@thepassle/app-tools": "^0.9.0",
+    "axios": "^1.5.0",
     "lit": "^2.7.2",
+    "nanostores": "^0.9.3",
     "urlpattern-polyfill": "^7.0.0",
     "workbox-build": "^6.5.2",
     "workbox-core": "^6.5.2",
