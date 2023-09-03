@@ -22,6 +22,12 @@
         "./packages/ui:start",
         "./packages/client:dev"
       ]
+    },
+    "build": {
+      "command": "pnpm --filter ./packages/client build && cp -r ./packages/client/dist ./docs",
+      "dependencies": [
+        "./packages/ui:build"
+      ]
     }
   },
   "devDependencies": {
